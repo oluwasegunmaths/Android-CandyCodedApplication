@@ -30,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
     private CandyDbHelper candyDbHelper = new CandyDbHelper(this);
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent infoActivityIntent = new Intent(this,InfoActivity.class);
+        startActivity(infoActivityIntent);
+        return super.onOptionsItemSelected(item);
+    }
+    
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
