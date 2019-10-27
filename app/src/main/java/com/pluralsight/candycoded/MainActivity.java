@@ -24,7 +24,7 @@ import com.loopj.android.http.TextHttpResponseHandler;
 import cz.msebera.android.httpclient.Header;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
     private Candy[] candies;
     private CandyDbHelper candyDbHelper = new CandyDbHelper(this);
    
