@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,11 +16,21 @@ import com.pluralsight.candycoded.DB.CandyContract.CandyEntry;
 import com.pluralsight.candycoded.DB.CandyDbHelper;
 import com.squareup.picasso.Picasso;
 
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String SHARE_DESCRIPTION = "Look at this delicious candy from Candy Coded - ";
     public static final String HASHTAG_CANDYCODED = " #candycoded";
     String mCandyImageUrl = "";
+    
+ private void createShareIntent() {
+        Intent shareIntent= new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        String string= SHARE_DESCRIPTION+mCandyImageUrl+HASHTAG_CANDYCODED;
+        shareIntent.putExtra(Intent.EXTRA_TEXT,string);
+        startActivity(shareIntent);
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
