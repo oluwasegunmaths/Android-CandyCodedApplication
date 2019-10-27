@@ -78,7 +78,11 @@ public class DetailActivity extends AppCompatActivity {
         inflater.inflate(R.menu.detail, menu);
         return true;
     }
-
+ @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        createShareIntent();
+        return super.onOptionsItemSelected(item);
+    }
     // ***
     // TODO - Task 4 - Share the Current Candy with an Intent
     // ***
