@@ -4,8 +4,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-
+import android.content.Intent;
 import com.squareup.picasso.Picasso;
+import android.view.View;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -26,7 +27,14 @@ public class InfoActivity extends AppCompatActivity {
     // ***
     // TODO - Task 2 - Launch the Google Maps Activity
     // ***
-
+ public void createMapIntent(View view) {
+        Uri uri=Uri.parse("geo:0,0?q=618 E South St Orlando, FL 32801");
+        Intent intentToLaunchMap= new Intent(Intent.ACTION_VIEW,uri);
+        intentToLaunchMap.setPackage("com.google.android.apps.maps");
+        if (intentToLaunchMap.resolveActivity(getPackageManager())!=null) {
+            startActivity(intentToLaunchMap);
+        }
+    }
     // ***
     // TODO - Task 3 - Launch the Phone Activity
     // ***
